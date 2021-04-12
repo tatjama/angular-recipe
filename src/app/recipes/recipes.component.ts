@@ -12,8 +12,10 @@ export class RecipesComponent implements OnInit {
   ];
 
   constructor() { }
-
+  recipe:Recipe;
   ngOnInit(): void {
   }
-
+  showRecipeDetail(selectedRecipe: Recipe){
+    this.recipe = selectedRecipe;
+  }
 }
