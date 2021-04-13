@@ -13,6 +13,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
 import { RecipeItemComponent } from './recipes/recipes-list/recipe-item/recipe-item.component';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 
 
@@ -33,7 +34,7 @@ import { RecipeItemComponent } from './recipes/recipes-list/recipe-item/recipe-i
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
