@@ -8,10 +8,15 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipesDetailComponent implements OnInit {
 
+  isOpen: boolean = false;
+
   @Input() recipe: Recipe;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  openDropdown(){
+    this.isOpen = !this.isOpen
+  }
 }
