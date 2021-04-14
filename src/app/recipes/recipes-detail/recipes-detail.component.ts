@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+
 import { Recipe } from '../recipe.model';
 import { RecipesService } from '../recipes.service';
 
@@ -11,11 +13,20 @@ export class RecipesDetailComponent implements OnInit {
 
   isOpen: boolean = false;
 
-  @Input() recipe: Recipe;
+   recipe: Recipe;
+   id: number;
 
-  constructor(private recipesService: RecipesService) { }
+  constructor(private recipesService: RecipesService,
+              private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params
+      .subscribe(
+          (params: Params) => {
+            this.id = +params['id'];
+            this.recipe = this.recipesService.getRecipe(this.id);
+          }
+    )
   }
 
   openDropdown(){
